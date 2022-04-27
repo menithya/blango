@@ -8,9 +8,10 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_headers
 logger = logging.getLogger(__name__)
 # Create your views here.
-@cache_page(300)
-@vary_on_headers("Cookies")
+# @cache_page(300)
+# @vary_on_headers("Cookies")
 def index(request):
+  print("index called")
   posts = Post.objects.filter(published_at__lte=timezone.now()).select_related("author")
   logger.debug("Got %d posts", len(posts))
   return render(request, "blog/index.html",{"posts":posts})

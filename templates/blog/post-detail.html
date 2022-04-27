@@ -16,11 +16,19 @@
 {% endrow %}
 {% row %}
     {% col %}
-        {% cache 3600 recent_posts %}
+        <!-- {% cache 3600 recent_posts %} -->
           {% recent_posts post %}
         {% endcache %}
     {% endcol %}
 {% endrow %}
+{% if post.author.profile %}
+    {% row %}
+        {% col %}
+            <h4>About the author</h4>
+            <p>{{ post.author.profile.bio }}</p>
+        {% endcol %}
+    {% endrow %}
+{% endif %}
 {% include "blog/post-comments.html" %}
 {% endblock %}
 

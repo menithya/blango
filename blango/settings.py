@@ -38,7 +38,7 @@ class Dev(Configuration):
   SESSION_COOKIE_SECURE = True
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
-
+  AUTH_USER_MODEL = "blango_auth.User"
 
   # Application definition
 
@@ -52,8 +52,8 @@ class Dev(Configuration):
       'debug_toolbar',
       'crispy_forms',
       'crispy_bootstrap5',
-      'blog',
-      
+      'blango_auth',
+      'blog',     
 
   ]
 
@@ -73,6 +73,7 @@ class Dev(Configuration):
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
   CRISPY_TEMPLATE_PACK = "bootstrap5"
   INTERNAL_IPS = ["192.168.11.179",'192.168.10.226']
+  
 
   TEMPLATES = [
       {

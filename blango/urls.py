@@ -33,6 +33,7 @@ urlpatterns = [
     name="django_registration_register",
 ),
     path("accounts/", include("django_registration.backends.activation.urls")),
+    path("accounts/", include("allauth.urls")),
     path("ip/", blog.views.get_ip),
     path("", blog.views.index),
     path("post/<slug>/", blog.views.post_detail, name="blog-post-detail")

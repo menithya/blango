@@ -67,7 +67,8 @@ class Dev(Configuration):
       "allauth", 
       "allauth.account", 
       "allauth.socialaccount", 
-      "allauth.socialaccount.providers.google" 
+      "allauth.socialaccount.providers.google",
+      "rest_framework.authtoken",
 
   ]
 
@@ -82,6 +83,14 @@ class Dev(Configuration):
       # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
       
   ]
+
+  REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}
 
   ROOT_URLCONF = 'blango.urls'
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
